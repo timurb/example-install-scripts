@@ -13,7 +13,7 @@ if which firewall-cmd 2> /dev/null; then
   sudo firewall-cmd --reload
 fi
 
-cp -f "${PWD}/templates/nginx.conf" /etc/nginx/nginx.conf
-cp -f "${PWD}/templates/nginx-site.conf" /etc/nginx/conf.d/web-server.conf
+sudo cp -f "${PWD}/templates/nginx.conf" /etc/nginx/nginx.conf
+sudo cp -f "${PWD}/templates/nginx-site.conf" /etc/nginx/conf.d/web-server.conf
 
 sudo systemctl start nginx
