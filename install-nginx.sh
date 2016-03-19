@@ -13,7 +13,7 @@ if which firewall-cmd 2> /dev/null; then
   sudo firewall-cmd --reload
 fi
 
-sudo cp -f "${PWD}/templates/nginx.conf" /etc/nginx/nginx.conf
-sudo cp -f "${PWD}/templates/nginx-site.conf" /etc/nginx/conf.d/web-server.conf
+sudo "${PWD}/gen-template/gen-template.py" --force --template "${PWD}/templates/nginx.conf.tpl" --json tomcat-proxy.json --out /etc/nginx/nginx.conf
+sudo "${PWD}/gen-template/gen-template.py" --force --template "${PWD}/templates/nginx-site.conf.tpl" --json tomcat-proxy.json --out /etc/nginx/conf.d/web-server.conf
 
 sudo systemctl start nginx
