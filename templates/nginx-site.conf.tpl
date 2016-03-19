@@ -3,7 +3,7 @@ server {
     server_name  _;
 
     location / {
-      proxy_pass http://127.0.0.1:8080;
+      proxy_pass $proxy_address;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Scheme $scheme;
       proxy_set_header Host $host;
